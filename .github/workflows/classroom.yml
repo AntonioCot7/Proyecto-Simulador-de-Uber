@@ -1,0 +1,66 @@
+name: lab_e2e_20241_05 workflow
+
+on: [push, pull_request]
+
+jobs:
+  autograder:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Check out the repository
+      uses: actions/checkout@v4
+
+    - name: Start PostgreSQL container
+      run: docker run --name postgres -p 5432:5432 -d jeffreyamc/lab_e2e_20241_05_postgres:v2
+
+    - name: Wait for PostgreSQL to be healthy
+      run: |
+        until docker exec postgres pg_isready -U postgres; do
+          echo "Waiting for postgres to be healthy...";
+          sleep 5;
+        done
+
+    - name: Run Spring Boot backend container
+      run: docker run -d --name my-springboot-app --link postgres:db -e SPRING_PROFILES_ACTIVE=dev -e SPRING_DATASOURCE_URL=jdbc:postgresql://db:5432/postgres -e SPRING_DATASOURCE_USERNAME=postgres -e SPRING_DATASOURCE_PASSWORD=mypassword -p 8080:8080 jeffreyamc/lab_e2e_20241_05_springboot:v6
+
+    - name: Check Docker containers
+      run: docker ps
+
+    - name: Run test_connection.sh
+      run: |
+        chmod +x test_connection.sh
+        ./test_connection.sh
+
+    - name: Set up Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '20'
+
+    - name: Install Node.js dependencies
+      run: npm install
+      working-directory: ./frontend
+
+    - name: Start React server
+      run: npm run dev &
+      working-directory: ./frontend
+
+    - name: Wait for React server to be ready
+      run: |
+        while ! curl -s http://localhost:3000; do
+          echo "Waiting for React server to be ready...";
+          sleep 5;
+        done
+
+    - name: Running Tests E2E
+      run: |
+        npx cypress run --config-file ./cypress.config.js --browser chrome --record false
+      working-directory: ./frontend
+      env:
+        CYPRESS_BASE_URL: http://localhost:3000
+
+    - name: Upload Cypress screenshots
+      if: failure()
+      uses: actions/upload-artifact@v4
+      with:
+        name: cypress-screenshots
+        path: frontend/cypress/screenshots
