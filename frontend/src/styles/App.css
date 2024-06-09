@@ -8,5 +8,71 @@
 }
 
 .title {
-  @apply text-2xl font-bold
+  @apply text-4xl font-bold text-center p-10
 }
+
+.subtitle {
+  @apply text-xl text-center m-5
+}
+
+.navigation-buttons {
+  @apply flex justify-center p-3 bg-white
+}
+
+.main-content {
+  @apply flex space-x-4 p-8 bg-white h-full justify-around
+}
+
+.content {
+  width: 45%;
+  @apply bg-white h-max justify-center flex-col p-5 rounded-3xl
+}
+
+.content-background {
+  width: 45%;
+  @apply bg-gray-300 h-max rounded-3xl justify-center p-16
+}
+
+.button {
+  @apply bg-primary text-white font-bold py-3 px-4 rounded-full cursor-pointer mt-4
+}
+
+.form {
+  @apply flex flex-col p-5;
+}
+
+.parameter, .half-parameter {
+  @apply mb-5;
+}
+
+.parameter label, .half-parameter label {
+  @apply text-sm ml-5 block text-gray-700;
+}
+
+.parameter input, .half-parameter input {
+  @apply bg-transparent rounded-md border-gray-600 border-2 h-10 w-full p-5 mt-1;
+}
+
+/* Ajustes específicos para half-parameter */
+.half-parameter {
+  @apply w-1/2;
+}
+
+.flex-container {
+  @apply flex space-x-6;
+}
+
+.radio-container {
+  @apply flex items-center mt-2 space-x-20;
+}
+
+.radio-container input[type="radio"] {
+  @apply h-7 w-10; /* Ajusta el tamaño de los radio buttons */
+  accent-color: #7955B4; /* Color del radio button cuando está marcado */
+}
+
+.radio-container label {
+  @apply text-sm text-gray-700;
+}
+
+

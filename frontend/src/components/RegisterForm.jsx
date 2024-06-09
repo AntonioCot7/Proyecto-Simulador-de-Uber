@@ -2,65 +2,74 @@ import React from 'react';
 
 export const RegisterForm = () => {
   return (
-    <section>
-      <h1>Registrarse a Uber</h1>
-      <form>
-        <div>
+    <section className="content-background">
+      <h1 className="title">Registrarse a Uber</h1>
+      <form className="form">
+        <div className="flex-container">
+        <div className="half-parameter">
           <label htmlFor="firstName">Nombres</label>
-          <input 
-            type="text" 
-            name="firstName" 
+          <input
+            type="text"
+            name="firstName"
             id="firstName"
           />
         </div>
-        <div>
+        <div className="half-parameter">
           <label htmlFor="lastName">Apellidos</label>
-          <input 
-            type="text" 
-            name="lastName" 
+          <input
+            type="text"
+            name="lastName"
             id="lastName"
           />
         </div>
-        <div>
-          <label htmlFor="email">Email</label>
-          <input 
-            type="email" 
-            name="email" 
+        </div>
+        <div className="parameter">
+          <label htmlFor="email">Correo</label>
+          <input
+            type="email"
+            name="email"
             id="email"
           />
         </div>
-        <div>
+        <div className="parameter">
           <label htmlFor="password">Contraseña</label>
-          <input 
-            type="password" 
-            name="password" 
+          <input
+            type="password"
+            name="password"
             id="password"
           />
         </div>
-        <div>
-          <label htmlFor="phone">Celular</label>
-          <input 
-            type="text" 
-            name="phone" 
-            id="phone"
-          />
-        </div>
-        <div>
-          <label htmlFor="isDriver">¿Eres Conductor?</label>
-          <input 
-            type="radio" 
-            name="isDriver" 
-            id="driver" 
-            value="true" 
-          /> Sí
-          <input 
-            type="radio" 
-            name="isDriver" 
-            id="passenger" 
-            value="false" 
-          /> No
-        </div>
-        <button id='registerSubmit' className='bg-primary text-white font-bold mx-6 py-2 px-4 rounded-full cursor-pointer' type="submit">Registrarse</button>
+        <div className="flex-container">
+          <div className="half-parameter">
+            <label htmlFor="phone">Celular</label>
+            <input
+                type="text"
+                name="phone"
+                id="phone"
+            />
+          </div>
+          <div className='half-parameter'>
+            <label htmlFor="isDriver">¿Eres Conductor?</label>
+            <div className="radio-container">
+            <input
+                type="radio"
+                name="isDriver"
+                id="driver"
+                value="true"
+            /> Sí
+            <input
+                type="radio"
+                name="isDriver"
+                id="passenger"
+                value="false"
+            /> No
+            </div>
+          </div>
+          </div>
+            <button id='registerSubmit'
+                    className='button'
+                    type="submit">Registrarse
+            </button>
       </form>
     </section>
   );

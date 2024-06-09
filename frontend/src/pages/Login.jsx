@@ -7,16 +7,16 @@ import img4 from '../assets/Img4.jpg'
 export const Login = () => {
   return (
     <main>
-      <section>
+      <section className="navigation-buttons">
         <Button message="Iniciar Sesión" to="/auth/login"/>
         <Button message="Registrarse" to="/auth/register"/>
       </section>
 
-      <article>
+      <article className="main-content">
         <LoginForm />
-        <section>
-          <h2>Bienvenido de vuelta</h2>
-          <p>Inicia sesión para empezar a usar Uber</p>
+        <section className="content">
+          <h2 className="title">Bienvenido de vuelta</h2>
+          <p className="subtitle">Inicia sesión para empezar a usar Uber</p>
           <img src={img4} alt="uber" />
         </section>
       </article>

@@ -9,16 +9,16 @@ export const Register = () => {
 
   return (
     <main>
-      <section>
+      <section className="navigation-buttons">
         <Button message="Iniciar Sesión" to="/auth/login"/>
         <Button message="Registrarse" to="/auth/register"/>
       </section>
 
-      <article>
-        <section>
-          <h1>¡Bienvenido!</h1>
-          <p>Regístrate como pasajero o conductor para empezar con Uber</p>
-          <img src={img6} alt="uber" />
+      <article className="main-content">
+        <section className="content">
+          <h1 className="title">¡Bienvenido!</h1>
+          <p className="subtitle">Regístrate como pasajero o conductor para empezar con Uber</p>
+          <img className='w-4/5 mx-auto' src={img6} alt="uber" />
 
         </section>
         { vehicleRegister ? 
