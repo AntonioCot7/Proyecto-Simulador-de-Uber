@@ -53,6 +53,15 @@
   @apply bg-transparent rounded-md border-gray-600 border-2 h-10 w-full p-5 mt-1;
 }
 
+.parameter input:focus, .half-parameter input:focus {
+  border-color: #7955B4;
+  outline: none;
+}
+
+.parameter input:active, .half-parameter input:active {
+  border-color: #7955B4;
+}
+
 /* Ajustes específicos para half-parameter */
 .half-parameter {
   @apply w-1/2;
