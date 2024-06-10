@@ -1,11 +1,19 @@
-import React, { useState } from 'react'
-import { Button } from '../components/Button'
-import { RegisterForm } from '../components/RegisterForm'
-import { RegisterVehicle } from '../components/RegisterVehicle'
-import img6 from '../assets/Img6.png'
+import React, { useState } from 'react';
+import { Button } from '../components/Button';
+import { RegisterForm } from '../components/RegisterForm';
+import { RegisterVehicle } from '../components/RegisterVehicle';
+import img6 from '../assets/Img6.png';
 
 export const Register = () => {
-  const[vehicleRegister, setVehicleRegister] = useState(false);
+    const [vehicleRegister, setVehicleRegister] = useState(false);
+    const [formData, setFormData] = useState(null);
+
+    const handleRegister = (data) => {
+        if (data.isDriver === 'true') {
+            setFormData(data);
+            setVehicleRegister(true);
+        }
+    };
 
   return (
     <main>
@@ -21,11 +29,11 @@ export const Register = () => {
           <img className='w-4/5 mx-auto' src={img6} alt="uber" />
 
         </section>
-        { vehicleRegister ? 
-          <RegisterVehicle /> 
-          : 
-          <RegisterForm />
-        }
+          {vehicleRegister ?
+              <RegisterVehicle formData={formData}/>
+              :
+              <RegisterForm onRegister={handleRegister}/>
+          }
       </article>
     </main>
   )
