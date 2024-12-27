@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { jwtDecode } from 'jwt-decode';
 
-const BACKEND_URL = 'http://127.0.0.1:8080'; // Spring Boot
+const BACKEND_URL = 'http://localhost:8080'; // Spring Boot
 
 export const getRoleBasedOnToken = () => {
   const token = localStorage.getItem('token');
