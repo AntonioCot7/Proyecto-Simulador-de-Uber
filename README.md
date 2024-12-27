@@ -4,13 +4,9 @@ Este proyecto consiste en una aplicación web básica que simula las funcionalid
 
 ---
 
-## Diseño (5pts) 🖌️
-El diseño es una parte fundamental en el desarrollo de software, ya que es lo primero que ve el usuario al interactuar con la aplicación. No obstante, en el curso de CS2031 no será indispensable tener un diseño perfecto, pero sí funcional.  
-
-Se recomienda clonar el diseño del prototipo del E2E con ayuda de Tailwind. **Pero puedes crear tu propio diseño si lo deseas**.
-
+## Diseño 🖌️
 ### Prototipo en Figma
-El prototipo en Figma es una guía visual para que puedan clonar el diseño de la web del E2E. Pueden acceder a él desde este enlace: [**Prototipo web del E2E**](https://www.figma.com/community/file/1374595433604097313/diseno-web-e2e)
+El prototipo en Figma es una guía visual para que puedan clonar el diseño de la web. Pueden acceder a él desde este enlace: [**Prototipo web del E2E**](https://www.figma.com/community/file/1374595433604097313/diseno-web-e2e)
 
 ![Prototipo web del E2E](./media/FigmaE2E.gif)
 
